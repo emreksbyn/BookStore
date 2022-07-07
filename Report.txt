@@ -1,0 +1,31 @@
+Domain
+-------------
+ Entities 
+	* Enums -> Status olusturuldu.
+	* Interaface -> IBaseEntity ve IBase olusturuldu.
+	* Concrete -> Author, Book, BookAuthor, Genre, User olusturuldu.
+
+Application
+-------------
+ Repositories
+	* BaseRepository -> IBaseRepository olusturuldu
+	* Queries -> QueryOptions
+	* EntityTypeRepositories (IAuthorRepository, IBookRepository...) olusturuldu.
+
+ UnitOfWork 
+	IUnitOfWork olusturuldu.
+
+Persistence
+--------------
+ Context
+	* AppDbContext olusturuldu Entity' ler DbSet yapildi.
+ EntityTypeConfigurations
+	* Abstract -> BaseMap
+	* Concrete -> AuthorMap, BookAuthorMap, BookMap, GenreMap, UserMap olusturuldu.
+ Repositories
+	* Abstract -> BaseRepository
+	* Concrete -> AuthotRepository, BookRepository...
+ SeedData
+	* SeedAuthors, SeedBookAuthor,... Bunlarý olustur AppDbContext sýnýfýna ekle.
+ UnitOfWorkConcrete 
+	* UnitOfWork -> UnitOfWork yapisini olusturduk. Klasor ile ayni isimde olmasin diye sonuna Concrete ekledim.
