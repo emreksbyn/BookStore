@@ -5,7 +5,8 @@ Domain
 	* Interaface -> IBaseEntity ve IBase olusturuldu.
 	* Concrete -> Author, Book, BookAuthor, Genre, User olusturuldu.
 
-Application
+
+Application -> Domain katmani referanslara eklendi.
 -------------
  Repositories
 	* BaseRepository -> IBaseRepository olusturuldu
@@ -15,7 +16,8 @@ Application
  UnitOfWork 
 	IUnitOfWork olusturuldu.
 
-Persistence
+
+Persistence -> Application katmani referanlara eklendi.
 --------------
  Context
 	* AppDbContext olusturuldu Entity' ler DbSet yapildi.
@@ -23,9 +25,30 @@ Persistence
 	* Abstract -> BaseMap
 	* Concrete -> AuthorMap, BookAuthorMap, BookMap, GenreMap, UserMap olusturuldu.
  Repositories
-	* Abstract -> BaseRepository
+	* Abstract -> BaseRepository -> Extensions klasorune QueryExtensions eklendi.
 	* Concrete -> AuthotRepository, BookRepository...
  SeedData
 	* SeedAuthors, SeedBookAuthor,... Bunlarý olustur AppDbContext sýnýfýna ekle.
  UnitOfWorkConcrete 
 	* UnitOfWork -> UnitOfWork yapisini olusturduk. Klasor ile ayni isimde olmasin diye sonuna Concrete ekledim.
+ DependecyResolver
+	* AutofacModule -> IoC yi ekledik. Startup sinifina ekledik.
+		.UseServiceProviderFactory(new AutofacServiceProviderFactory()) 
+		.ConfigureContainer<ContainerBuilder>(builder =>
+		{
+			builder.RegisterModule(new AutofacModule());
+		})
+ Grid
+	* Base -> GridBuilder eklendi.
+	 ---> Utilities e RouteDictionary eklendi.
+	 ---> DTOs a GridDTO eklendi. Extensions a StringExtensions eklendi. BookGridDTO eklendi. --> Microsoft.AspNetCore.Mvc.NewtonsoftJon indirildi.
+	 ---> Utilities e FilterPrefix eklendi.
+	 ---> Extensions a SessionExtensions eklendi
+	* EntityGrid -> BookGridBuilder eklendi.
+
+				
+
+
+
+Web -> Application ve Persistence katmanlari referanslara eklendi.
+------------
