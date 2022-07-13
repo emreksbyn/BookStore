@@ -56,3 +56,9 @@ Persistence -> Application katmani referanlara eklendi.
 
 Web -> Application ve Persistence katmanlari referanslara eklendi.
 ------------
+
+Migration icin -> Web katmanina EFCore.Design paketi indirildi. Persistence katmanina EFCore.SqlServer ve EFCore.Tools paketleri indirildi.
+					Package Manager Console da default project migrations klasorunun eklenecegi katman olan Persistence katmani secilir Web katmani Set as Startup Project 
+					secilir.
+					Startup a AppDbContext eklenir. appsettings.json a ConnectionString eklenir.
+					add-migration init1 ve update-database yazilip db ye eklenir.

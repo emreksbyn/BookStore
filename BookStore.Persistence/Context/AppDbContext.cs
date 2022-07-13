@@ -35,13 +35,13 @@ namespace BookStore.Persistence.Context
             string username = "admin", password = "Password", roleName = "Admin";
 
             // Role yoksa olustur.
-            if (await roleManager.FindByNameAsync(roleName)==null)
+            if (await roleManager.FindByNameAsync(roleName) == null)
             {
                 await roleManager.CreateAsync(new IdentityRole(roleName));
             }
 
             // username yoksa olustur ve rolu ata.
-            if (await userManager.FindByNameAsync(username)==null)
+            if (await userManager.FindByNameAsync(username) == null)
             {
                 User user = new User { UserName = username };
                 var result = await userManager.CreateAsync(user, password);
