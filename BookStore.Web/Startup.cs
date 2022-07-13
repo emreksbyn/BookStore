@@ -18,7 +18,7 @@ namespace BookStore.Web
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews()/*.AddNewtonsoftJson()*/;
+            services.AddControllersWithViews().AddNewtonsoftJson();
             services.AddSession();            
             services.AddDbContext<AppDbContext>(options =>
             {
@@ -48,15 +48,15 @@ namespace BookStore.Web
 
             app.UseEndpoints(endpoints =>
             {
-                ////paging, sorting, filtering
-                //endpoints.MapControllerRoute(
-                //  name: "",
-                //  pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}/filter/{author}/{genre}/{price}");
+                //paging, sorting, filtering
+                endpoints.MapControllerRoute(
+                  name: "",
+                  pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}/filter/{author}/{genre}/{price}");
 
-                ////paging and sorting
-                //endpoints.MapControllerRoute(
-                //  name: "",
-                //  pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}");
+                //paging and sorting
+                endpoints.MapControllerRoute(
+                  name: "",
+                  pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

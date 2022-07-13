@@ -1,0 +1,41 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Book Details</h2>
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Title</td>
+                            <td>@(Model.BookAuthors.Count > 1 ? "Authors" : "Author")</td>
+                            <td>Price</td>
+                            <td>Genre</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.Title</td>
+                            <td>
+                                @foreach (BookAuthor bookAuthor in Model.BookAuthors)
+                                {
+                                    <p>
+                                        <a asp-controller="Author" asp-action="Details" asp-route-id="@bookAuthor.AuthorId" class="btn btn-sm btn-info">@bookAuthor.Author.FullName</a>
+                                    </p>
+                                }
+                            </td>
+                            <td>@Model.Price.ToString("C")</td>
+                            <td>@Model.Genre.Name</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -50,9 +50,6 @@ Persistence -> Application katmani referanlara eklendi.
  Models
 	* ViewModels -> AuthorListViewModel, BookListViewModel, NavBarViewModel eklendi.
 
-				
-
-
 
 Web -> Application ve Persistence katmanlari referanslara eklendi.
 ------------
@@ -66,5 +63,7 @@ Migration icin -> Web katmanina EFCore.Design paketi indirildi. Persistence katm
 	* _ViewImports.cshtml -> Entities, Dtos, ViewModels, Utilities ekle.
 	* Shared -> _Layout.cshtml duzenle.
  Controllers
-	* AuthorController eklendi. Views -> Author -> List.cshtml eklendi. Session calismasi icin Startup.cs "services.AddSession();" ve "app.UseSession();" eklendi. 
+	* Session calismasi icin Startup.cs "services.AddSession();" ve "app.UseSession();" eklendi.
+	* BookController eklendi. Views -> List ve Details .cshtml dosyalari eklendi.
+	* AuthorController eklendi. Views -> Author -> List.cshtml eklendi.
  
