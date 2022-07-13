@@ -1,11 +1,11 @@
 ﻿using BookStore.Application.Models.DTOs;
 using BookStore.Domain.Entities.Concrete;
-using BookStore.Persistence.Extensions;
-using BookStore.Persistence.Grid.Base;
-using BookStore.Persistence.Grid.Utilities;
+using BookStore.Application.Grid.Base;
+using BookStore.Application.Grid.Utilities;
 using Microsoft.AspNetCore.Http;
+using BookStore.Application.Extensions;
 
-namespace BookStore.Persistence.Grid.EntityGrid
+namespace BookStore.Application.Grid.EntityGrid
 {
     // Genel amaclar icin yazilmis GridBuilder sinifindan kalitim alan spesifik bir entity icin yazilmis bu sinif, route sozlugunde (dictionary) filtre rota segmentlerini yuklemek ve temizlemek icin uygulamaya ozel fonksiyonlar icermektedir. Ayrica siralama filtreleme icin uygulamaya ozel boolean bayraklar (flag) eklenmektedir.
     public class BookGridBuilder : GridBuilder

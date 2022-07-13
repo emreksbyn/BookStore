@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
-namespace BookStore.Persistence.Extensions
+namespace BookStore.Application.Extensions
 {
     public static class StringExtensions
     {
@@ -41,6 +39,16 @@ namespace BookStore.Persistence.Extensions
             }// foreach ifadesinden stringBuilder bu halde cikacak "Emre Kisaboyun-author"
             return stringBuilder.ToString().Replace(' ', '-').ToLower();
             // return edilecek deger "emre-kisaboyun-author"
+        }
+
+        /// <summary>
+        /// Gelen string ifadenin bas harfini Substring methodu ile yakalayip bas harfi buyuk harfe donusturuyoruz ve metnin geri kalanina ekliyoruz.
+        /// </summary>
+        /// <param name="parametre"></param>
+        /// <returns></returns>
+        public static string Capitalize(this string parametre)
+        {
+            return parametre?.Substring(0, 1)?.ToUpper() + parametre?.Substring(1);
         }
     }
 }

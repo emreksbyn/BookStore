@@ -1,4 +1,4 @@
-﻿namespace BookStore.Persistence.Grid.Utilities
+﻿namespace BookStore.Application.Grid.Utilities
 {
     public class FilterPrefix
     {

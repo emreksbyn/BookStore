@@ -15,7 +15,13 @@ Application -> Domain katmani referanslara eklendi.
 
  UnitOfWork 
 	IUnitOfWork olusturuldu.
-
+ Grid
+	* Base -> GridBuilder eklendi.
+	 ---> Utilities e RouteDictionary eklendi.
+	 ---> DTOs a GridDTO eklendi. Extensions a StringExtensions eklendi. BookGridDTO eklendi. --> Microsoft.AspNetCore.Mvc.NewtonsoftJon indirildi.
+	 ---> Utilities e FilterPrefix eklendi.
+	 ---> Extensions a SessionExtensions eklendi
+	* EntityGrid -> BookGridBuilder eklendi.
 
 Persistence -> Application katmani referanlara eklendi.
 --------------
@@ -38,13 +44,11 @@ Persistence -> Application katmani referanlara eklendi.
 		{
 			builder.RegisterModule(new AutofacModule());
 		})
- Grid
-	* Base -> GridBuilder eklendi.
-	 ---> Utilities e RouteDictionary eklendi.
-	 ---> DTOs a GridDTO eklendi. Extensions a StringExtensions eklendi. BookGridDTO eklendi. --> Microsoft.AspNetCore.Mvc.NewtonsoftJon indirildi.
-	 ---> Utilities e FilterPrefix eklendi.
-	 ---> Extensions a SessionExtensions eklendi
-	* EntityGrid -> BookGridBuilder eklendi.
+
+ EntityQueries
+	* BookQueryOptions eklendi.
+ Models
+	* ViewModels -> AuthorListViewModel, BookListViewModel, NavBarViewModel eklendi.
 
 				
 

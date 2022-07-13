@@ -1,11 +1,10 @@
-﻿using BookStore.Application.Models.DTOs;
-using BookStore.Persistence.Extensions;
+﻿using BookStore.Application.Extensions;
+using BookStore.Application.Models.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace BookStore.Persistence.Grid.Utilities
+namespace BookStore.Application.Grid.Utilities
 {
     public class RouteDictionary : Dictionary<string, string>
     {

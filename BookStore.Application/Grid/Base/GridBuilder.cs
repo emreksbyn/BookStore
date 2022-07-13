@@ -1,9 +1,9 @@
 ﻿using BookStore.Application.Models.DTOs;
-using BookStore.Persistence.Extensions;
-using BookStore.Persistence.Grid.Utilities;
+using BookStore.Application.Grid.Utilities;
 using Microsoft.AspNetCore.Http;
+using BookStore.Application.Extensions;
 
-namespace BookStore.Persistence.Grid.Base
+namespace BookStore.Application.Grid.Base
 {
     public class GridBuilder
     {

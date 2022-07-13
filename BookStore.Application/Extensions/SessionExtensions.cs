@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace BookStore.Persistence.Extensions
+namespace BookStore.Application.Extensions
 {
     public static class SessionExtensions
     {
