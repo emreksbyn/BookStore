@@ -58,7 +58,13 @@ Web -> Application ve Persistence katmanlari referanslara eklendi.
 ------------
 
 Migration icin -> Web katmanina EFCore.Design paketi indirildi. Persistence katmanina EFCore.SqlServer ve EFCore.Tools paketleri indirildi.
-					Package Manager Console da default project migrations klasorunun eklenecegi katman olan Persistence katmani secilir Web katmani Set as Startup Project 
-					secilir.
-					Startup a AppDbContext eklenir. appsettings.json a ConnectionString eklenir.
-					add-migration init1 ve update-database yazilip db ye eklenir.
+			Package Manager Console da default project migrations klasorunun eklenecegi katman olan Persistence katmani secilir Web katmani Set as Startup Project secilir.
+			Startup a AppDbContext eklenir. appsettings.json a ConnectionString eklenir.
+			add-migration init1 ve update-database yazilip db ye eklenir.
+
+ Views
+	* _ViewImports.cshtml -> Entities, Dtos, ViewModels, Utilities ekle.
+	* Shared -> _Layout.cshtml duzenle.
+ Controllers
+	* AuthorController eklendi. Views -> Author -> List.cshtml eklendi. Session calismasi icin Startup.cs "services.AddSession();" ve "app.UseSession();" eklendi. 
+ 

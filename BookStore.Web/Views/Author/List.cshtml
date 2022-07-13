@@ -1,0 +1,55 @@
+﻿@model AuthorListViewModel
+@{
+    ViewData["Title"] = "List";
+    RouteDictionary current = Model.CurrentRoute;
+    RouteDictionary routes = Model.CurrentRoute.Clone();
+}
+
+<h1>Author Catalog</h1>
+
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(Author.FirstName), current);}
+                <a asp-controller="Author" asp-action="List" asp-all-route-data="@routes" class="text-white">First Name</a>
+            </th>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(Author.LastName), current);}
+                <a asp-controller="Author" asp-action="List" asp-all-route-data="@routes" class="text-white">Last Name</a>
+            </th>
+            <th>Book(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Author author in Model.Authors)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Author" asp-action="Details" asp-route-id="@author.Id">@author.FirstName</a>
+                </td>
+                <td>
+                    <a asp-controller="Author" asp-action="Details" asp-route-id="@author.Id">@author.LastName</a>
+                </td>
+                <td>
+                    @foreach (var bookAuthor in author.BookAuthors)
+                    {
+                        <p>
+                            <a asp-controller="Book" asp-action="Details" asp-route-id="@bookAuthor.BookId">@bookAuthor.Book.Title</a>
+                        </p>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    routes = Model.CurrentRoute.Clone();
+
+    for (int i = 0; i <= Model.TotalPages; i++)
+    {
+        routes.PageNumber = i;
+        <a asp-controller="Author" asp-action="List" asp-all-route-data="@routes" class="btn btn-sm btn-outline-primary @NavBarViewModel.Active(i,current.PageNumber)">@i</a>
+    }
+}

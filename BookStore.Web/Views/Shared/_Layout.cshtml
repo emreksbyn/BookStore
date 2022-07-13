@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    // Sayfa acilirken olusacak olan route bilgisini string e cevirecek "current" isimli degiskene atadik.
+    var current = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,11 +23,17 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-item @NavBarViewModel.Active("Home",current)">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item @NavBarViewModel.Active("Book",current)">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
+                        </li>
+                        <li class="nav-item @NavBarViewModel.Active("Author",current)">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Author" asp-action="Index">Authors</a>
+                        </li>
+                        <li class="nav-item @NavBarViewModel.Active("Genre",current)">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Genre" asp-action="Index">Genres</a>
                         </li>
                     </ul>
                 </div>
